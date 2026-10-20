@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Indian Music Supervisors Association (IMSA)</title>
+  <meta name="description" content="A new association bringing music supervisors together in India. Tell us you're interested and we'll keep you updated.">
+  <meta name="theme-color" content="#f3efe6">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Indian Music Supervisors Association (IMSA)">
+  <meta property="og:description" content="A new association bringing music supervisors together in India. Tell us you're interested and we'll keep you updated.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Schibsted+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#interest">Skip to the form</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <!-- NAME / LOGO
+           To use a logo instead of the text: upload your PNG into the `assets` folder,
+           delete the <span> block below, and remove the comment marks around the <img> line.
+           (Change the height with --logo-h at the top of assets/styles.css.)
+      <a class="wordmark" href="#top"><img class="wordmark__img" src="assets/logo.png" alt="Indian Music Supervisors Association (IMSA)"></a>
+      -->
+      <a class="wordmark" href="#top" aria-label="Indian Music Supervisors Association (IMSA)">
+        <span class="wordmark__name">Indian Music Supervisors</span>
+        <span class="wordmark__sub">Association (IMSA)</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top" class="wrap main">
+
+    <!-- LEFT: the short message -->
+    <section class="intro" aria-labelledby="headline">
+      <h1 id="headline">Making space for music supervision.</h1>
+      <p class="lede">A new association bringing music supervisors together in India. Tell us you're interested and we'll keep you updated.</p>
+      <button type="button" class="link-btn" data-open-role aria-haspopup="dialog">What does a music supervisor do?</button>
+    </section>
+
+    <!-- RIGHT: the Airtable form (it has its own title).
+         To change the form, replace the address after src="..." with your Airtable embed address.
+         To make it taller or shorter, change height="900". -->
+    <section id="interest" class="form" aria-label="Express your interest" tabindex="-1">
+      <iframe id="interest-form"
+              class="airtable-embed"
+              src="https://airtable.com/embed/appeuePKRvrLzHRmU/pagxHOUO0fTalPzbd/form"
+              title="Express your interest"
+              loading="lazy"
+              width="100%"
+              height="900"></iframe>
+      <p class="form__alt">Form not loading? <a id="form-link" href="https://airtable.com/appeuePKRvrLzHRmU/pagxHOUO0fTalPzbd/form" target="_blank" rel="noopener noreferrer">Open it in a new tab</a>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer__row">
+      <p>&copy; 2026 Indian Music Supervisors Association (IMSA)</p>
+      <!-- Add a contact email or social links here when you have them, for example:
+      <a href="mailto:hello@example.com">hello@example.com</a>
+      <a href="https://www.linkedin.com/company/your-page" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      -->
+    </div>
+  </footer>
+
+  <!-- POPUP: opens from "What does a music supervisor do?" -->
+  <dialog id="role-dialog" aria-labelledby="role-title">
+    <div class="dialog__inner">
+      <button type="button" class="dialog__close" data-close-role aria-label="Close">&times;</button>
+      <h2 id="role-title">What does a music supervisor do?</h2>
+      <p>Music supervision is the process of shaping, sourcing and managing music for film, television, advertising, gaming and other screen-based storytelling. Music supervisors work where creative, commercial and rights-related decisions meet.</p>
+      <p class="dialog__label">The work can include</p>
+      <ul class="dialog__list">
+        <li>Finding and curating music</li>
+        <li>Choosing songs and where they go</li>
+        <li>Licensing and clearing compositions and master recordings</li>
+        <li>Working with artists, labels, publishers and composers</li>
+        <li>Collaborating with directors, producers and editors</li>
+        <li>Budgeting, scheduling, cue sheets and delivery</li>
+      </ul>
+      <p class="dialog__note">Every project is different. A supervisor may take on some of this work, not all of it.</p>
+    </div>
+  </dialog>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

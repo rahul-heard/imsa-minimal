@@ -1,0 +1,192 @@
+/* ==========================================================================
+   IMSA minimal page
+   Colours, fonts and logo size are set once, here.
+   ========================================================================== */
+
+:root {
+  --paper: #f3efe6;
+  --paper-2: #e9e4d8;
+  --ink: #121110;
+  --muted: #5f5b53;
+  --rule: rgba(18, 17, 16, 0.22);
+  --accent: #f04a23;
+  --accent-ink: #b2300f;
+
+  --font-display: "Schibsted Grotesk", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Logo height. Change this number to make a logo bigger or smaller. */
+  --logo-h: 2.25rem;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --max: 1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 1.5rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+html:has(dialog[open]) { overflow: hidden; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 3px; }
+
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 20;
+  background: var(--ink); color: var(--paper); padding: 0.6rem 1rem; text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Header ---------- */
+
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header .wrap { display: flex; align-items: center; min-height: 4.25rem; }
+
+.wordmark { display: inline-grid; gap: 0.15rem; text-decoration: none; line-height: 1.1; }
+.wordmark__name { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.03em; }
+.wordmark__sub { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.01em; }
+.wordmark__img { display: block; height: var(--logo-h); width: auto; max-width: min(70vw, 20rem); object-fit: contain; }
+
+/* ---------- Main ---------- */
+
+.main {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 6rem);
+}
+@media (min-width: 62rem) {
+  .main { grid-template-columns: 5fr 6fr; column-gap: 5rem; align-items: start; }
+  .intro { position: sticky; top: 2rem; }
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5.4vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  max-width: 11ch;
+  text-wrap: balance;
+}
+
+.lede { margin-top: 1.5rem; font-size: 1.2rem; line-height: 1.5; max-width: 27rem; }
+
+.link-btn {
+  margin-top: 1.75rem;
+  padding: 0.2rem 0;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--accent);
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.link-btn:hover { color: var(--accent-ink); border-color: var(--accent-ink); }
+
+/* ---------- Form ---------- */
+
+.form:focus { outline: none; }
+.form:focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 6px; }
+
+.airtable-embed {
+  display: block;
+  width: 100%;
+  min-height: 30rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+}
+.form__alt { margin-top: 0.9rem; font-size: 0.9rem; color: var(--muted); }
+.form__alt a { color: var(--ink); font-weight: 600; }
+
+/* ---------- Footer ---------- */
+
+.site-footer { border-top: 1px solid var(--rule); }
+.footer__row {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; align-items: baseline;
+  padding-block: 1.5rem;
+  font-size: 0.9rem; color: var(--muted);
+}
+.footer__row a { color: var(--ink); }
+
+/* ---------- Popup ---------- */
+
+dialog {
+  width: min(36rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+dialog::backdrop { background: rgba(18, 17, 16, 0.6); }
+@media (prefers-reduced-motion: no-preference) {
+  dialog[open] { animation: pop 0.2s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: translateY(10px); } }
+}
+
+.dialog__inner { position: relative; padding: clamp(1.5rem, 4vw, 2.25rem); display: grid; gap: 1rem; }
+
+.dialog__inner h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.4vw, 1.9rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  padding-right: 3rem;
+}
+
+.dialog__close {
+  position: absolute; top: 0.9rem; right: 0.9rem;
+  width: 2.5rem; height: 2.5rem;
+  display: grid; place-items: center;
+  background: none; border: 1px solid var(--ink);
+  font: inherit; font-size: 1.6rem; line-height: 1; color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.dialog__close:hover { background: var(--ink); color: var(--paper); }
+
+.dialog__label { margin-top: 0.5rem; font-weight: 600; }
+
+.dialog__list { border-top: 1px solid var(--rule); }
+.dialog__list li {
+  display: flex; align-items: baseline; gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.dialog__list li::before {
+  content: ""; flex: none; width: 0.55rem; height: 2px;
+  background: var(--accent); transform: translateY(-0.28em);
+}
+
+.dialog__note {
+  border-left: 2px solid var(--accent);
+  padding-left: 0.9rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
