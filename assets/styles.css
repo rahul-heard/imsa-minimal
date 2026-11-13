@@ -190,3 +190,6 @@ dialog::backdrop { background: rgba(18, 17, 16, 0.6); }
   font-size: 0.95rem;
   color: var(--muted);
 }
+/* Logo shown next to the text name */
+.wordmark--with-logo { display: inline-flex; align-items: center; gap: 0.75rem; }
+.wordmark__text { display: grid; gap: 0.15rem; }
